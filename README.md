@@ -1,75 +1,61 @@
-# React + TypeScript + Vite
+# FinanceTracker (Трекер финансов)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Современное и простое веб-приложение для управления личными финансами, построенное с использованием React, TypeScript, TailwindCSS v4 и Zustand.
 
-Currently, two official plugins are available:
+## Основные возможности
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **Управление транзакциями**: добавление доходов и расходов с подробным указанием суммы, даты и категорий.
+- **Расчет баланса**: автоматический расчет текущего баланса, а также общего объема доходов и расходов.
+- **История операций**: просмотр списка всех транзакций в обратном хронологическом порядке с возможностью удаления.
+- **Сохранение данных**: автоматическая синхронизация всех записей с `localStorage` с использованием Zustand Middleware Persist. Данные сохраняются даже после перезагрузки страницы.
+- **Современный интерфейс**: отзывчивый дизайн, гармоничная цветовая палитра, использование теней и плавных переходов с помощью TailwindCSS.
 
-## React Compiler
+## Стек технологий
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Фреймворк:** [React 19](https://react.dev/)
+- **Язык программирования:** [TypeScript](https://www.typescriptlang.org/)
+- **Сборщик:** [Vite](https://vite.dev/)
+- **Стилизация:** [Tailwind CSS v4](https://tailwindcss.com/)
+- **Управление состоянием:** [Zustand](https://zustand.docs.pmnd.rs/)
 
-## Expanding the ESLint configuration
+## Начало работы
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Требования
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Для запуска проекта на вашем компьютере должен быть установлен [Node.js](https://nodejs.org/) (рекомендуется LTS версия).
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### Установка
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+1. Склонируйте репозиторий:
+   ```bash
+   git clone https://github.com/FarhodLatifov/FinanceTracker.git
+   cd FinanceTracker
+   ```
 
-```
+2. Установите зависимости:
+   ```bash
+   npm install
+   ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Запуск и сборка
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- **Запуск в режиме разработки:**
+  ```bash
+  npm run dev
+  ```
+  После запуска приложение будет доступно по адресу `http://localhost:5173`.
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- **Сборка для продакшена:**
+  ```bash
+  npm run build
+  ```
 
-```
+- **Предварительный просмотр сборки:**
+  ```bash
+  npm run preview
+  ```
+
+- **Проверка линтером:**
+  ```bash
+  npm run lint
+  ```
